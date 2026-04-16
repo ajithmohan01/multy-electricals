@@ -1,0 +1,120 @@
+.about {
+  background: linear-gradient(180deg, var(--secondary) 0%, var(--secondary-light) 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.1);
+  border-radius: var(--radius);
+  transition: all 0.3s;
+}
+
+.highlight-item:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.highlight-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.highlight-item strong {
+  display: block;
+  color: var(--text-light);
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.highlight-item p {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.value-card {
+  text-align: center;
+}
+
+.value-icon {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.value-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.value-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.about-quote {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 60px;
+  color: var(--primary);
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 12px;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+.about-quote p {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--primary-light);
+  font-weight: 500;
+  padding-left: 24px;
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
