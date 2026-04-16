@@ -1,3 +1,4 @@
+import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,7 +11,7 @@ import './App.css'
 
 export default function App() {
   return (
-    <>
+    <LanguageProvider>
       <Navbar />
       <main>
         <Hero />
@@ -26,6 +27,6 @@ export default function App() {
       <a href="tel:+917025523226" className="float-call-btn" aria-label="Call us now">
         📞
       </a>
-    </>
+    </LanguageProvider>
   )
 }

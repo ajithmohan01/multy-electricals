@@ -81,6 +81,32 @@
   background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
 }
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-toggle {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.lang-toggle .short-label { display: none; }
+
+.lang-toggle:hover {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: var(--primary);
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -114,6 +140,15 @@
   .hamburger {
     display: flex;
   }
+
+  /* Shorten label on mobile so it doesn't overflow the navbar */
+  .lang-toggle {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .lang-toggle .full-label { display: none; }
+  .lang-toggle .short-label { display: inline; }
 
   .navbar-links {
     display: none;

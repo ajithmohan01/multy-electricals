@@ -247,6 +247,10 @@
 }
 
 @media (max-width: 640px) {
+  .hero {
+    padding: 100px 0 60px;
+  }
+
   .hero-stats {
     gap: 16px;
   }

@@ -138,6 +138,20 @@ section {
   box-shadow: var(--shadow-lg);
 }
 
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }

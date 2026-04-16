@@ -163,4 +163,8 @@
   .form-row {
     grid-template-columns: 1fr;
   }
+
+  .contact-form-wrap .card {
+    padding: 20px;
+  }
 }

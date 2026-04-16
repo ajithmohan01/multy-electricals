@@ -1,6 +1,10 @@
+import { useLanguage } from '../context/LanguageContext'
 import './Hero.css'
 
 export default function Hero() {
+  const { t } = useLanguage()
+  const h = t.hero
+
   return (
     <section id="home" className="hero">
       <div className="hero-bg">
@@ -11,58 +15,60 @@ export default function Hero() {
 
       <div className="container hero-content">
         <div className="hero-badge">
-          <span>☀</span> Nilambur, Kerala&apos;s Trusted Solar Company
+          <span>☀</span> {h.badge}
         </div>
 
         <h1 className="hero-title">
-          Power Your Future<br />
-          <span>With The Sun</span>
+          {h.title1}<br />
+          <span>{h.title2}</span>
         </h1>
 
         <p className="hero-desc">
-          MULTY ELECTRICALS SOLAR delivers reliable, cost-effective solar solutions
-          for homes and businesses — from on-grid installations to complete electrical work.
-          Starting at just <strong>₹78,000</strong> with government subsidies available.
+          {h.desc.split('₹78,000').map((part, i, arr) =>
+            i < arr.length - 1
+              ? <span key={i}>{part}<strong>₹78,000</strong></span>
+              : <span key={i}>{part}</span>
+          )}
         </p>
 
         <div className="hero-tags">
-          <span>✓ On-Grid Systems</span>
-          <span>✓ Battery Systems</span>
-          <span>✓ Free Service Support</span>
-          <span>✓ Govt. Subsidy Eligible</span>
+          <span>{h.tag1}</span>
+          <span>{h.tag2}</span>
+          <span>{h.tag3}</span>
+          <span>{h.tag4}</span>
         </div>
 
         <div className="hero-actions">
           <a href="#contact" className="btn btn-primary">
-            Get Free Quote
+            {h.cta1}
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
           <a href="#services" className="btn btn-outline">
-            Explore Services
+            {h.cta2}
           </a>
         </div>
 
         <div className="hero-stats">
           <div className="stat">
             <span className="stat-num">500+</span>
-            <span className="stat-label">Installations</span>
+            <span className="stat-label">{h.stat1Label}</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
             <span className="stat-num">3KW–10KW</span>
-            <span className="stat-label">System Range</span>
+            <span className="stat-label">{h.stat2Label}</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
             <span className="stat-num">7%</span>
-            <span className="stat-label">Loan Interest</span>
+            <span className="stat-label">{h.stat3Label}</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
-            <span className="stat-num">Free</span>
-            <span className="stat-label">After Service</span>
+            <span className="stat-num">{h.stat4Value}</span>
+            <span className="stat-label">{h.stat4Label}</span>
           </div>
         </div>
       </div>

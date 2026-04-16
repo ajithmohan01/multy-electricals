@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import './Navbar.css'
 
-const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Why Us', href: '#whyus' },
-  { label: 'Contact', href: '#contact' },
-]
+const navKeys = ['home', 'about', 'services', 'pricing', 'whyUs', 'contact']
+const navHrefs = ['#home', '#about', '#services', '#pricing', '#whyus', '#contact']
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { lang, toggleLang, t } = useLanguage()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -32,29 +28,36 @@ export default function Navbar() {
         </a>
 
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(link => (
-            <li key={link.label}>
-              <a href={link.href} onClick={() => setMenuOpen(false)}>
-                {link.label}
+          {navKeys.map((key, i) => (
+            <li key={key}>
+              <a href={navHrefs[i]} onClick={() => setMenuOpen(false)}>
+                {t.nav[key]}
               </a>
             </li>
           ))}
           <li>
             <a href="tel:+917025523226" className="btn btn-primary navbar-cta">
-              Call Now
+              {t.nav.callNow}
             </a>
           </li>
         </ul>
 
-        <button
-          className={`hamburger ${menuOpen ? 'active' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="navbar-right">
+          <button className="lang-toggle" onClick={toggleLang}>
+            <span className="full-label">{lang === 'en' ? 'Malayalam' : 'English'}</span>
+            <span className="short-label">{lang === 'en' ? 'ML' : 'EN'}</span>
+          </button>
+
+          <button
+            className={`hamburger ${menuOpen ? 'active' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </nav>
   )
