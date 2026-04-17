@@ -44,8 +44,8 @@ export default function Navbar() {
 
         <div className="navbar-right">
           <button className="lang-toggle" onClick={toggleLang}>
-            <span className="full-label">{lang === 'en' ? 'Malayalam' : 'English'}</span>
-            <span className="short-label">{lang === 'en' ? 'ML' : 'EN'}</span>
+            <span className="full-label">{lang === 'en' ? 'മലയാളം' : 'English'}</span>
+            <span className="short-label">{lang === 'en' ? 'മല' : 'EN'}</span>
           </button>
 
           <button
